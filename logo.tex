@@ -1,0 +1,59 @@
+% arara: lualatex
+\documentclass[tikz]{standalone}
+\usetikzlibrary{positioning,calc}
+\usepackage{fontspec}
+\setmainfont{Felix Titling MT}
+\usepackage{graphicx}
+\begin{document}
+\begin{tikzpicture}
+
+\definecolor{b1}{RGB}{15,88,145}
+\definecolor{b2}{RGB}{82,155,200}
+\definecolor{uconnblue}{RGB}{0,14,47}
+
+\node[
+    font=\Huge,
+    align=center,
+    text=uconnblue,
+] 
+at (0,0) (text) {COMBUSTION\\DIAGNOSTICS\\LABORATORY};
+
+\node[anchor=west] at (text.east) (flame) {\begin{tikzpicture}
+\coordinate (a) at (0,0)            ;
+\coordinate (b) at ($(a)+(35:3)$)   ;
+\coordinate (c) at ($(a)+(120:1.5)$);
+\coordinate (d) at (0.5,3)          ;
+\coordinate (e) at ($(a)+(145:2.5)$);
+\coordinate (f) at ($(a)+(60:2.25)$);
+\coordinate (g) at ($(a)-(0.1,0)$)  ;
+\coordinate (h) at ($(g)+(75:1.25)$);
+\coordinate (i) at ($(g)+(145:1)$)  ;
+\coordinate (j) at (-0.75,1.5)      ;
+\coordinate (k) at ($(g)+(165:2)$)  ;
+\coordinate (l) at ($(g)+(95:0.5)$) ;
+\clip (-1.5,0) rectangle (1,3);
+\path[fill=b1] (a) .. controls (b) and (c) .. (d) .. controls (e) and (f) .. (a);
+\path[fill=b2] (g) .. controls (h) and (i) .. (j) .. controls (k) and (l) .. (g);
+\end{tikzpicture}
+};
+
+\draw ($(text.north west)+(-0.1cm,0.1cm)$) -- ($(text.south west)-(0.1cm,0.1cm)$);
+
+\node[
+    anchor = south east,
+]
+at ($(text.south west)-(0.25cm,0.25cm)$) (uconn) {\includegraphics[width=70px]{uconn-wordmark-single-blue}};
+
+% \node[
+    % anchor=south,
+% ]
+% at (uconn.north) {\includegraphics[width=70px]{oak-leaf-blue}};
+
+\node[
+    anchor=south,
+]
+at (uconn.north) {\includegraphics[width=60px]{uconn-husky}};
+
+
+\end{tikzpicture}
+\end{document}
