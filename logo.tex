@@ -1,8 +1,9 @@
 % arara: lualatex
-\documentclass[tikz, convert={density={1000},convertexe={convert}}]{standalone}
+\RequirePackage{luatex85}  % Needed to work around a bug with lualatex and standalone
+\documentclass[tikz]{standalone}
 \usetikzlibrary{positioning,calc}
 \usepackage{fontspec}
-\setmainfont{Felix Titling MT}
+\setmainfont{FELIXTI.TTF}
 \usepackage{graphicx}
 \begin{document}
 \begin{tikzpicture}
