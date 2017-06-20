@@ -1,0 +1,39 @@
+\RequirePackage{luatex85}
+\PassOptionsToPackage{svgnames,x11names}{xcolor}
+\documentclass[tikz,margin=1pt]{standalone}
+\usetikzlibrary{positioning,calc}
+\usepackage{graphicx}
+\usepackage{color}
+
+%\usepackage[sfdefault]{FiraSans}
+
+\usepackage{fontspec}
+\usepackage[T1]{fontenc}
+
+\definecolor{OSUorange}{HTML}{C34500}
+\definecolor{OSUblue}{HTML}{385E86}
+\definecolor{OSUdark}{HTML}{373737}
+\definecolor{OSUlight}{HTML}{F5F2ED}
+
+\begin{document}
+
+\fontfamily{pag}\selectfont
+
+\begin{tikzpicture}
+
+\node at (0,0) (logo) {\begin{tikzpicture}
+   \path[fill=black] (0,0) circle (1.25cm);
+   \path[fill=OSUlight] (0,0) circle (1.15cm and 1.15cm);
+   \node[yscale=0.5,xscale=0.6] (flame) at (0,0.5) {\pgftext{\includegraphics{flame-color.pdf}}};
+   \node[text=black,scale=2] at (-0.5,-0.5) {N};
+   \node[text=black,scale=2] at (0,-0.5) {R};
+   \node[text=black,scale=2] at (0.5,-0.5) {G};
+\end{tikzpicture}
+};
+
+\draw ($(logo.north west)+(-0.1cm,0.1cm)$) -- ($(logo.south west)-(0.1cm,0.1cm)$);
+
+\node[anchor = east,] at ($(logo.west)-(0.2cm,0)$) (osu) {\includegraphics[width=70px]{OSU_vertical_2C_O_over_B_RGB}};
+
+\end{tikzpicture}
+\end{document}
